@@ -8,22 +8,72 @@ It supports rating and favoriting of audios, full-text-search, embedding files f
 
 ![GWARipper WebGUI Desktop](https://i.imgur.com/nLqPT5T.png)
 
-## Download
-You can either download the [bundled executable](https://github.com/nilfoer/gwaripper/releases) for Windows that has all the dependencies included. The exe will uncompress the bundled dependencies including data like HTML templates, into a temporary folder in your `APPDATA` folder e.g. `C:\Users\nilfoer\AppData\Local\Temp\_MEI175512`. If that is not what you want, use one of the other options!
+## Installation
 
-Or you can download the [GWARipper-version.zip](https://github.com/nilfoer/gwaripper/releases) on the releases page (downloading the auto-generated source will not work if you want to use the webGUI, since static third-party files like fonts or bootstrap3 are not tracked by git!), unzip it and then install it using:
-```
-> python -m pip install .
+### Quick Start (Recommended)
+
+```bash
+cd C:/Users/danie/Documents/GWARIP_DEV/gwaripper
+
+# Create virtual environment (skip if .venv already exists)
+python -m venv .venv
+
+# Activate the virtual environment (PowerShell on Windows)
+.venv\Scripts\activate.ps1
+
+# Install with all dependencies
+pip install .
+
+# Verify installation
+gwaripper --help
 ```
 
-Then you need to use `gwaripper` instead of `gwaripper.exe` and `gwaripper_webgui` instead of `gwaripper.exe webgui`.
+### Manual Installation Steps
 
-If you don't want to install it to your python directory you can just unzip it and install the dependencies using:
-```
-> python -m pip install -r requirements.txt
+**1. Create and activate virtual environment:**
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate.ps1  # PowerShell
+# or
+.venv\Scripts\activate     # Command Prompt/CMD
 ```
 
-Then you replace the `gwaripper` and `gwaripper_webgui` calls in the explanation below with `gwaripper-runner.py` and `gwaripper-runner.py webgui` respectively.
+You should see `(venv)` in your terminal prompt.
+
+**2. Install the package:**
+
+```bash
+pip install .
+```
+
+This will:
+- Install all required dependencies from `pyproject.toml`
+- Build and register the `gwaripper` and `gwaripper-webgui` CLI commands
+- Set up entry points in your PATH
+
+**3. Verify installation works:**
+
+```bash
+gwaripper --help
+```
+
+You should see a help message showing all available subcommands.
+
+### Bundled Executable Installation (Windows)
+
+Download the latest release from [GitHub Releases](https://github.com/nilfoer/gwaripper/releases):
+
+1. Download `GWARipper-version.zip` (source code with dependencies)
+2. Extract to any location
+3. Open a terminal in that folder and run:
+   ```bash
+   .venv\Scripts\activate.ps1
+   pip install .
+   gwaripper --help
+   ```
+
+**Note:** The bundled executable is automatically generated when you build the wheel or release files. It contains all dependencies unpacked to a temporary location in `APPDATA`.
 
 ## Usage
 ### Setup
