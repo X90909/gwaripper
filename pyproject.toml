@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "GWARipper"
+# Version will be extracted from gwaripper/gwaripper.py VERSION class attribute
+description = "A script that downloads audio files from the gonewildaudio subreddit."
+readme = "README.md"
+license = "MIT"
+keywords = ["script", "reddit", "gonewildaudio", "download", "scraping"]
+authors = [{name = "nilfoer"}]
+version = "0.9.1"
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "pyperclip>=1.5.25,<=1.7.0",
+    "praw>=7.5,<8",
+    "beautifulsoup4>=4.5.3,<=4.6.3",
+    "flask>=3,<4",
+    "music-tag>=0.4,<0.5",
+    "certifi",
+    "typing-extensions>=3.7.4",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "gwaripper*",
+    "gwaripper_webGUI*",
+    "convert_table*",
+    "!__pycache__*",
+]
+
+[project.scripts]
+gwaripper = 'gwaripper.runner:main'
+gwaripper-webgui = 'gwaripper.runner:run_webgui'

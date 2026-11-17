@@ -49,9 +49,14 @@ test_files_bu*
 secrets/
 dist/
 build/
+!pyproject.toml
+!pyproject.toml.lock
+!requirements.txt
+!requirements-dev.txt
 !gwaripper_webGUI/static/webfonts/*
 !gwaripper_webGUI/templates/**
 gwaripper_test.ipynb
 gwaripper/gwaripper_config*.ini
 *.egg-info/
 *.swp
+
